@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# reports
+allure-results
+allure-report
+cypress/videos/
+cypress/screenshots/
