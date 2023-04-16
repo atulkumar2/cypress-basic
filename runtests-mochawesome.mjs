@@ -1,16 +1,37 @@
 // =============================================================================
-// Deletes Run Cypress tests, generate reports
+// Deletes old report folders, runs cypress and generate new reports
 // =============================================================================
 
 import cypress from "cypress";
 import marge from "mochawesome-report-generator";
-import {join} from "path";
+import { join } from "path";
 import { merge } from "mochawesome-merge";
 import { existsSync, rmSync, lstatSync } from "fs";
 
+const CYPRESS_FOLDER = "cypress";
 const MA_RAWREPORTFOLDER = "reports";
 const MA_REPORTFOLDER = "mochawesome-report";
+const CYPRESS_REPORT_HELPERS = [
+  `${join(CYPRESS_FOLDER, 'screenshots')}`,
+  `${join(CYPRESS_FOLDER, 'videos')}`,
+];
+const MA_FOLDERS = [MA_RAWREPORTFOLDER, MA_REPORTFOLDER];
 
+/**
+ * Delete reporting related folders
+ */
+function deleteReportingFolders(){
+  for (const folder of CYPRESS_REPORT_HELPERS.concat(MA_FOLDERS)) {
+    if (existsSync(folder) && lstatSync(folder).isDirectory()) {
+      rmSync(folder, { recursive: true });
+      console.log(`Deleted ${folder}`);
+    }
+  }
+}
+
+/**
+ * Merge reports and generate HTML reports
+ */
 function mergeReports() {
   console.log("Merging Reports");
   const options = {
@@ -19,20 +40,10 @@ function mergeReports() {
   merge(options).then((report) => marge.create(report, options));
 }
 
-const CYPRESS_FOLDER = "cypress";
-const CYPRESS_REPORT_HELPERS = [
-  `${join(CYPRESS_FOLDER, 'screenshots')}`,
-  `${join(CYPRESS_FOLDER,'videos')}`,
-];
-const MA_FOLDERS = [MA_RAWREPORTFOLDER, MA_REPORTFOLDER];
+// Delete Reporting folders
+deleteReportingFolders();
 
-for (const folder of CYPRESS_REPORT_HELPERS.concat(MA_FOLDERS)) {
-  if (existsSync(folder) && lstatSync(folder).isDirectory()) {
-    rmSync(folder, { recursive: true });
-    console.log(`Deleted ${folder}`);
-  }
-}
-
+// Run the tests and generate reports
 cypress
   .run({
     reporter: "mochawesome",

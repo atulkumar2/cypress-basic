@@ -1,10 +1,10 @@
 # cypress with mochawesome
 
-Basic nodejs code for Cypress (No useful tests, Just structure)
+Basic nodejs code for Cypress with some failing tests to highlight mochawesome reporting
 
 Make sure to have node installed using nvm from https://github.com/nvm-sh/nvm. CHeck node version from packages list to ensure that right node version is installed.
 
-Clone it and do as below to install it
+Clone the repo and do as below to install it
 
 - npm install
 
