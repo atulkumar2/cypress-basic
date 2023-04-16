@@ -1,9 +1,9 @@
-# cypress
+# Cypress basic 
 Basic nodejs code for Cypress (No useful tests, Just structure)
 
 Make sure to have node installed using nvm from https://github.com/nvm-sh/nvm 
 
-Clone it and do as below to install it
+Clone repo and do as below to install it
 
 - npm install
 
