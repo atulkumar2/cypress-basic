@@ -1,5 +1,7 @@
 # Cypress basic with allure reporting
 
+*Cypress + Allure + Javascript*
+
 Basic nodejs code for Cypress with allure reports (No useful tests, Just structure)
 
 Make sure to have node installed using nvm from https://github.com/nvm-sh/nvm 
