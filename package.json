@@ -3,5 +3,11 @@
     "@badeball/cypress-cucumber-preprocessor": "latest",
     "@bahmutov/cypress-esbuild-preprocessor": "latest",
     "cypress": "latest"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": "cypress/e2e/**/*.js",
+    "html": {
+      "enabled": true
+    }
   }
 }

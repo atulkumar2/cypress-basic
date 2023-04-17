@@ -27,3 +27,6 @@ Cypress 12.9.0
 - https://www.npmjs.com/package/cypress-esbuild-preprocessor
 - https://cucumber.io/
 - https://cucumber.io/tools/cucumber-open/
+- https://medium.com/@gurudatt.sa26/cypress-how-to-generate-cucumber-json-html-report-4d05141ac342
+- https://github.com/cucumber/json-formatter
+- https://github.com/Xray-App/tutorial-js-cypress-cucumber

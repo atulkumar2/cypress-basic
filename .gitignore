@@ -102,3 +102,9 @@ dist
 
 # TernJS port file
 .tern-port
+
+# Reports
+cypress/videos
+cypress/screenshots
+cucumber-report.html
+cucumber-messages.ndjson
